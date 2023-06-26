@@ -51,9 +51,9 @@ uint16_t calcuateCRCwithOpCode(uint16_t opcode, const uint8_t* data, size_t leng
 {
     size_t lengthCrcArray = sizeof(opcode) + lengthData;
     uint8_t* dataForCrc = new uint8_t[lengthCrcArray];
+    
     dataForCrc[0] = opcode >> 8;
     dataForCrc[1] = opcode & 0xFF;
-    // Copy data to sendData
     memcpy(&dataForCrc[2], data, lengthData);
 
     uint16_t crc = calculateCRC16CCITT(dataForCrc, lengthCrcArray);
