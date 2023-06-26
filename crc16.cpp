@@ -43,9 +43,9 @@ uint16_t calculateCRC16CCITT(const uint8_t* data, size_t length)
     return crc;
 }
 
-const uint16_t OPCODE_ECHO = 0x8305;
-const uint16_t OPCODE_RXDM = 0x1234;
-const uint16_t OPCODE_RESET = 0xE402;
+const uint16_t OPCODE_ONE = 0x8305;
+const uint16_t OPCODE_TWO = 0x1234;
+const uint16_t OPCODE_THREE = 0xE402;
 
 uint16_t calcuateCRCwithOpCode(uint16_t opcode, const uint8_t* data, size_t lengthData)
 {
@@ -64,7 +64,7 @@ uint16_t calcuateCRCwithOpCode(uint16_t opcode, const uint8_t* data, size_t leng
 
 void testCrcWithOpcode()
 {
-    uint16_t opcode = OPCODE_ECHO;
+    uint16_t opcode = OPCODE_ONE;
     uint8_t inputData[] = { 0x12, 0x34 };
     
     size_t length = sizeof(inputData) / sizeof(inputData[0]);
